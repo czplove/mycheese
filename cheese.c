@@ -12,22 +12,24 @@
 #include <libintl.h>
 #include <unistd.h>
 
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
-#include <libgnomevfs/gnome-vfs.h>
-#include <glib/gprintf.h>
+//-#include <gdk/gdk.h>
+//-#include <gdk/gdkx.h>
+//-#include <libgnomevfs/gnome-vfs.h>
+//-#include <glib/gprintf.h>
 
-#include <gst/interfaces/xoverlay.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
+//-#include <gst/interfaces/xoverlay.h>
+//-#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gtk/gtk.h>
 
-#include "cheese.h"
-#include "pipeline-photo.h"
-#include "fileutil.h"
-#include "thumbnails.h"
-#include "window.h"
+//-#include "cheese.h"
+//-#include "pipeline-photo.h"
+//-#include "fileutil.h"
+//-#include "thumbnails.h"
+//-#include "window.h"
 
 #define _(str) gettext(str)
 
+#if 0
 struct _cheese_window cheese_window;
 struct _thumbnails thumbnails;
 
@@ -100,20 +102,22 @@ set_screen_x_window_id()
   return FALSE;
 }
 
+#endif
+
 int
 main(int argc, char **argv)
 {
-  gchar *path = NULL;
-  GnomeVFSURI *uri;
+  //-gchar *path = NULL;
+  //-GnomeVFSURI *uri;
 
   gtk_init(&argc, &argv);
-  glade_init();
-  gst_init(&argc, &argv);
-  gnome_vfs_init();
-	g_type_init();
+  //-glade_init();
+  //-gst_init(&argc, &argv);
+  //-gnome_vfs_init();
+	//-g_type_init();
 
-  create_window();
-
+  //-create_window();
+#if 0
   PipelinePhoto = PIPELINE(pipeline_new());
   pipeline_create(PipelinePhoto);
   pipeline_set_play(PipelinePhoto);
@@ -144,9 +148,9 @@ main(int argc, char **argv)
       G_CALLBACK(pipeline_change_effect_next), PipelinePhoto);
   g_signal_connect(G_OBJECT(cheese_window.widgets.button_effects_left), "clicked",
       G_CALLBACK(pipeline_change_effect_prev), PipelinePhoto);
-
-  gtk_widget_show_all(cheese_window.window);
-  gtk_main();
+#endif
+  //-gtk_widget_show_all(cheese_window.window);
+  //-gtk_main();
 
   return EXIT_SUCCESS;
 }
